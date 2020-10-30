@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		93353C3B254CC3F20046BEF4 /* AttestationKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93353C3A254CC3F20046BEF4 /* AttestationKind.swift */; };
 		93F5ACF8254B75F800AF5E61 /* AttestationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F5ACF7254B75F800AF5E61 /* AttestationApp.swift */; };
 		93F5ACFA254B75F800AF5E61 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F5ACF9254B75F800AF5E61 /* ListView.swift */; };
 		93F5ACFC254B75F900AF5E61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93F5ACFB254B75F900AF5E61 /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		93353C3A254CC3F20046BEF4 /* AttestationKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttestationKind.swift; sourceTree = "<group>"; };
 		93F5ACF4254B75F800AF5E61 /* Attestation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Attestation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93F5ACF7254B75F800AF5E61 /* AttestationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttestationApp.swift; sourceTree = "<group>"; };
 		93F5ACF9254B75F800AF5E61 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				93F5AD35254B95C400AF5E61 /* AttestationFormData.swift */,
 				93F5AD3A254BA15700AF5E61 /* AttestationView.swift */,
 				93F5AD4E254BAA4E00AF5E61 /* Attestation+QRCode.swift */,
+				93353C3A254CC3F20046BEF4 /* AttestationKind.swift */,
 				93F5ACFB254B75F900AF5E61 /* Assets.xcassets */,
 				93F5AD00254B75F900AF5E61 /* Persistence.swift */,
 				93F5AD05254B75F900AF5E61 /* Info.plist */,
@@ -277,6 +280,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93353C3B254CC3F20046BEF4 /* AttestationKind.swift in Sources */,
 				93F5AD36254B95C400AF5E61 /* AttestationFormData.swift in Sources */,
 				93F5AD3B254BA15700AF5E61 /* AttestationView.swift in Sources */,
 				93F5AD04254B75F900AF5E61 /* Attestation.xcdatamodeld in Sources */,
@@ -442,7 +446,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Attestation/Preview Content\"";
 				DEVELOPMENT_TEAM = E873B24XVN;
 				ENABLE_PREVIEWS = YES;
@@ -466,7 +470,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Attestation/Preview Content\"";
 				DEVELOPMENT_TEAM = E873B24XVN;
 				ENABLE_PREVIEWS = YES;

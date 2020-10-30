@@ -20,7 +20,6 @@ struct CreateAttestationView: View {
     @State private var tripDate: Date = Date()
 
     @State private var selectedReason: Int = 0
-    @State private var reasons = ["travail", "achats", "sante", "famille", "handicap", "sport_animaux", "convocation", "missions", "enfants"]
 
     @State private var errorMessage: String = ""
 
@@ -46,10 +45,14 @@ struct CreateAttestationView: View {
 
                 Section(header: Text("Choisissez un motif de déplacement")) {
                     Picker(selection: $selectedReason,
-                           label: Text(reasons[selectedReason]
-                                        .localizedCapitalized)) {
-                        ForEach(0 ..< reasons.count) {
-                            Text(self.reasons[$0].localizedCapitalized).tag($0)
+                           label: Text(AttestationKind.allCases[selectedReason]
+                                        .shortDescription)) {
+                        ForEach(0 ..< AttestationKind.allCases.count) { index in
+                            HStack {
+                                let attestationKind = AttestationKind.allCases[index]
+                                Image(systemName: attestationKind.symbolName)
+                                Text(attestationKind.shortDescription).tag(index)
+                            }
                         }
                     }.pickerStyle(MenuPickerStyle())
                 }
@@ -68,7 +71,7 @@ struct CreateAttestationView: View {
                                                                city: city,
                                                                postalCode: postalCode,
                                                                tripDate: tripDate,
-                                                               reason: reasons[selectedReason])
+                                                               reason: AttestationKind.allCases[selectedReason].rawValue)
                             onGenerate(formData)
                         } else {
                             errorMessage = "Attention, tous les champs sont obligatoires. Veuillez vérifier vos informations."

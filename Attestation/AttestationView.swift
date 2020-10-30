@@ -14,36 +14,77 @@ struct AttestationView: View {
 
     var body: some View {
         ScrollView {
-            VStack(alignment: .center, spacing: 8) {
-                Text("Attestation de déplacement dérogatoire")
-                    .font(.title)
-                    .multilineTextAlignment(.center)
-                Text("En application des mesures générales nécessaires pour faire face à l’épidémie de covid-19 dans le cadre de l’état d’urgence sanitaire.")
-                    .font(.footnote)
-                    .multilineTextAlignment(.center)
+            VStack(alignment: .leading, spacing: 28) {
+                VStack(alignment: .center, spacing: 8) {
+                    Text("Attestation de déplacement dérogatoire")
+                        .font(.title2)
+                        .bold()
+                        .multilineTextAlignment(.center)
+                        .lineLimit(nil)
+                    Text("En application des mesures générales nécessaires pour faire face à l’épidémie de covid-19 dans le cadre de l’état d’urgence sanitaire.")
+                        .font(.footnote)
+                        .multilineTextAlignment(.center)
+                }
+
+                VStack(alignment: .leading) {
+                    Text("Je soussigné·e,").font(.subheadline).foregroundColor(.secondary)
+                    Text("\(attestation.firstName ?? "") \(attestation.lastName ?? "")")
+                }
+
+                VStack(alignment: .leading) {
+                    Text("né·e le").font(.subheadline).foregroundColor(.secondary)
+                    Text(attestation.birthDate!, formatter: birthDateFormatter)
+                    Text("à \(attestation.birthPlace ?? "")")
+                }
+
+                VStack(alignment: .leading) {
+                    Text("demeurant").font(.subheadline).foregroundColor(.secondary)
+                    Text("\(attestation.address ?? "")\n\(attestation.postalCode ?? "") \(attestation.city ?? "")")
+                }
+
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("certifie que mon déplacement est lié au motif suivant autorisé en application des mesures générales nécessaires pour faire face à l'épidémie de Covid 19 dans le cadre de l'état d'urgence sanitaire :").font(.subheadline).foregroundColor(.secondary)
+                    HStack {
+                        Image(systemName: attestation.kind!.symbolName)
+                            .foregroundColor(attestation.kind!.color)
+                        Text(attestation.kind!.shortDescription).bold()
+                    }
+                    Text(attestation.kind?.longDescription ?? "").font(.subheadline)
+                }
+
+                VStack(alignment: .leading) {
+                    Text("Fait à").font(.subheadline).foregroundColor(.secondary)
+                    Text("\(attestation.city ?? "")")
+                    Text("le").font(.subheadline).foregroundColor(.secondary)
+                    Text(attestation.tripDate!, formatter: tripDateFormatter)
+                }
+
+                if let qrCode = attestation.qrCode {
+                    Image(uiImage: qrCode)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 250.0, height: 250.0)
+                        .background(Color.green)
+                }
             }
             .padding(.horizontal, 16)
 
-            VStack(alignment: .leading, spacing: 8) {
-                Text("Je soussigné·e,")
-                Text("\(attestation.firstName ?? "") \(attestation.lastName ?? "")")
-                Text("Né·e le \(attestation.birthDate ?? Date()) à \(attestation.birthPlace ?? "")")
-                Text("Demeurant \(attestation.address ?? "") \(attestation.postalCode ?? "") \(attestation.city ?? "")")
-                Text("certifie que mon déplacement est lié au motif suivant autorisé en application des mesures générales nécessaires pour faire face à l'épidémie de Covid 19 dans le cadre de l'état d'urgence sanitaire :")
-                Text(attestation.reasonDescription ?? "")
-                Text("Fait à \(attestation.city ?? "")")
-                Text("Le \(attestation.tripDate ?? Date())")
-            }
-            .padding(.horizontal, 16)
-
-            if let qrCode = attestation.qrCode {
-                Image(uiImage: qrCode)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 250.0, height: 250.0)
-            }
         }
     }
+
+    private let birthDateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.timeStyle = .none
+        formatter.dateStyle = .long
+        return formatter
+    }()
+
+    private let tripDateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.timeStyle = .short
+        formatter.dateStyle = .full
+        return formatter
+    }()
 }
 
 struct AttestationView_Previews: PreviewProvider {

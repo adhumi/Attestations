@@ -24,7 +24,19 @@ struct ListView: View {
             List {
                 ForEach(attestations) { attestation in
                     NavigationLink(destination: AttestationView(attestation: attestation)) {
-                        Text("Attestation du \(attestation.tripDate!, formatter: itemFormatter)")
+                        HStack {
+                            Image(systemName: attestation.kind!.symbolName)
+                                .font(.system(size: 20))
+                                .frame(width: 40, height: 40, alignment: .center)
+                                .foregroundColor(attestation.kind!.color)
+                                .aspectRatio(1, contentMode: .fit)
+                            VStack(alignment: .leading, spacing: 4) {
+                                Text(attestation.tripDate!, formatter: itemFormatter)
+                                Text(attestation.kind!.shortDescription)
+                                    .font(.subheadline)
+                                    .foregroundColor(.secondary)
+                            }
+                        }
                     }
                 }
                 .onDelete(perform: deleteItems)
@@ -92,8 +104,9 @@ struct ListView: View {
 
 private let itemFormatter: DateFormatter = {
     let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
+    formatter.timeStyle = .short
+    formatter.dateStyle = .medium
+    formatter.doesRelativeDateFormatting = true
     return formatter
 }()
 
