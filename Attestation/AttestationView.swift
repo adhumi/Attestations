@@ -33,7 +33,7 @@ struct AttestationView: View {
 
                 VStack(alignment: .leading) {
                     Text("né·e le").font(.subheadline).foregroundColor(.secondary)
-                    Text(attestation.birthDate!, formatter: birthDateFormatter)
+                    Text(birthDateFormatter.string(from: attestation.birthDate!))
                     Text("à \(attestation.birthPlace ?? "")")
                 }
 
@@ -56,7 +56,7 @@ struct AttestationView: View {
                     Text("Fait à").font(.subheadline).foregroundColor(.secondary)
                     Text("\(attestation.city ?? "")")
                     Text("le").font(.subheadline).foregroundColor(.secondary)
-                    Text(attestation.tripDate!, formatter: tripDateFormatter)
+                    Text(tripDateFormatter.string(from: attestation.tripDate!))
                 }
 
                 if let qrCode = attestation.qrCode {
@@ -77,6 +77,7 @@ struct AttestationView: View {
         let formatter = DateFormatter()
         formatter.timeStyle = .none
         formatter.dateStyle = .long
+        formatter.locale = Locale(identifier: "fr_FR")
         return formatter
     }()
 
@@ -84,6 +85,7 @@ struct AttestationView: View {
         let formatter = DateFormatter()
         formatter.timeStyle = .short
         formatter.dateStyle = .full
+        formatter.locale = Locale(identifier: "fr_FR")
         return formatter
     }()
 }

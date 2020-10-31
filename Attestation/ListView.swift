@@ -31,7 +31,7 @@ struct ListView: View {
                                 .foregroundColor(attestation.kind!.color)
                                 .aspectRatio(1, contentMode: .fit)
                             VStack(alignment: .leading, spacing: 4) {
-                                Text(attestation.tripDate!, formatter: itemFormatter)
+                                Text(itemFormatter.string(from: attestation.tripDate!))
                                 Text(attestation.kind!.shortDescription)
                                     .font(.subheadline)
                                     .foregroundColor(.secondary)
@@ -112,6 +112,7 @@ private let itemFormatter: DateFormatter = {
     formatter.timeStyle = .short
     formatter.dateStyle = .medium
     formatter.doesRelativeDateFormatting = true
+    formatter.locale = Locale(identifier: "fr_FR")
     return formatter
 }()
 
