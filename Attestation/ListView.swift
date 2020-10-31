@@ -49,7 +49,7 @@ struct ListView: View {
                     }) {
                         Label("Add Item", systemImage: "plus")
                     }.sheet(isPresented: $showingCreationForm) {
-                        CreateAttestationView(isPresented: $showingCreationForm) { formData in
+                        CreateAttestationView(isPresented: $showingCreationForm, personalData: personalData) { formData in
                             DispatchQueue.main.async {
                                 addAttestation(formData)
                             }
@@ -73,7 +73,6 @@ struct ListView: View {
             newAttestation.postalCode = formData.postalCode
             newAttestation.tripDate = formData.tripDate
             newAttestation.reasonIdentifier = formData.reason
-            newAttestation.reasonDescription = formData.reason
 
             do {
                 try viewContext.save()
@@ -99,6 +98,12 @@ struct ListView: View {
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
         }
+    }
+
+    var personalData: PersonalData? {
+        guard let data = UserDefaults.standard.data(forKey: PersonalData.key) else { return nil }
+        let decoder = PropertyListDecoder()
+        return try? decoder.decode(PersonalData.self, from: data)
     }
 }
 

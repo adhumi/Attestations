@@ -9,12 +9,10 @@
         <attribute name="firstName" attributeType="String"/>
         <attribute name="lastName" attributeType="String"/>
         <attribute name="postalCode" attributeType="String"/>
-        <attribute name="reasonDescription" attributeType="String"/>
         <attribute name="reasonIdentifier" attributeType="String"/>
-        <attribute name="reasonSystemImageName" optional="YES" attributeType="String"/>
         <attribute name="tripDate" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
     <elements>
-        <element name="Attestation" positionX="-63" positionY="-18" width="128" height="223"/>
+        <element name="Attestation" positionX="-63" positionY="-18" width="128" height="193"/>
     </elements>
 </model>

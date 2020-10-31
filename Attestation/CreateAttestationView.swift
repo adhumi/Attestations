@@ -20,10 +20,18 @@ struct CreateAttestationView: View {
     @State private var tripDate: Date = Date()
 
     @State private var selectedReason: Int = 0
+    @State private var shouldSavePersonalData: Bool = false
 
     @State private var errorMessage: String = ""
 
+    var personalData: PersonalData? = nil
     let onGenerate: (AttestationFormData) -> ()
+
+    init(isPresented: Binding<Bool>, personalData: PersonalData?, onGenerate: @escaping (AttestationFormData) -> ()) {
+        self._isPresented = isPresented
+        self.onGenerate = onGenerate
+        self.personalData = personalData
+    }
 
     var body: some View {
         NavigationView {
@@ -59,6 +67,9 @@ struct CreateAttestationView: View {
 
                 Section(footer: Text(errorMessage)
                             .foregroundColor(Color.red)) {
+                    Toggle(isOn: $shouldSavePersonalData) {
+                        Text("Enregistrer mes informations")
+                    }
                     Button(action: {
                         if checkForm() {
                             isPresented = false
@@ -73,17 +84,35 @@ struct CreateAttestationView: View {
                                                                tripDate: tripDate,
                                                                reason: AttestationKind.allCases[selectedReason].rawValue)
                             onGenerate(formData)
+
+                            if shouldSavePersonalData {
+                                savePersonalData()
+                            } else {
+                                clearPersonalData()
+                            }
                         } else {
                             errorMessage = "Attention, tous les champs sont obligatoires. Veuillez vérifier vos informations."
                         }
                     }) {
                         HStack {
                             Spacer()
-                            Text("Générer").bold()
+                            Text("Générer mon attestation").bold()
                             Spacer()
                         }
                     }
                 }
+            }
+            .onAppear {
+                guard let personalData = personalData else { return }
+
+                self.firstName = personalData.firstName
+                self.lastName = personalData.lastName
+                self.birthDate = personalData.birthDate
+                self.birthPlace = personalData.birthPlace
+                self.address = personalData.address
+                self.city = personalData.city
+                self.postalCode = personalData.postalCode
+                self.shouldSavePersonalData = true
             }
             .navigationBarTitle("Nouvelle attestation", displayMode: .inline)
             .toolbar {
@@ -102,10 +131,21 @@ struct CreateAttestationView: View {
     func checkForm() -> Bool {
         return !firstName.isEmpty && !lastName.isEmpty && !birthPlace.isEmpty && !address.isEmpty && !city.isEmpty && !postalCode.isEmpty
     }
+
+    func savePersonalData() {
+        let personalData = PersonalData(firstName: firstName, lastName: lastName, birthDate: birthDate, birthPlace: birthPlace, address: address, city: city, postalCode: postalCode)
+        let encoder = PropertyListEncoder()
+        let data = try? encoder.encode(personalData)
+        UserDefaults.standard.set(data, forKey: PersonalData.key)
+    }
+
+    func clearPersonalData() {
+        UserDefaults.standard.set(nil, forKey: PersonalData.key)
+    }
 }
 
 struct CreateAttestationView_Previews: PreviewProvider {
     static var previews: some View {
-        CreateAttestationView(isPresented: .constant(false), onGenerate: { _ in })
+        CreateAttestationView(isPresented: .constant(false), personalData: nil, onGenerate: { _ in })
     }
 }
