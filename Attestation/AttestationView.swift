@@ -60,12 +60,16 @@ struct AttestationView: View {
                 }
 
                 if let qrCode = attestation.qrCode {
-                    Image(uiImage: qrCode)
-                        .interpolation(.none)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 250.0, height: 250.0)
-                        .background(Color.green)
+                    HStack {
+                        Spacer()
+                        Image(uiImage: qrCode)
+                            .interpolation(.none)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 250.0, height: 250.0)
+                            .background(Color.green)
+                        Spacer()
+                    }
                 }
             }
             .padding(.horizontal, 16)
