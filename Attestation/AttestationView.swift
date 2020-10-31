@@ -61,6 +61,7 @@ struct AttestationView: View {
 
                 if let qrCode = attestation.qrCode {
                     Image(uiImage: qrCode)
+                        .interpolation(.none)
                         .resizable()
                         .scaledToFit()
                         .frame(width: 250.0, height: 250.0)
@@ -89,8 +90,10 @@ struct AttestationView: View {
 
 struct AttestationView_Previews: PreviewProvider {
     static var previews: some View {
-        let attestation = Attestation(context: PersistenceController.preview.container.viewContext)
-
+        let managedObjectContext = PersistenceController.preview.container.viewContext
+        let attestation = Attestation(context: managedObjectContext)
+        
         AttestationView(attestation: attestation)
+            .environment(\.managedObjectContext, managedObjectContext)
     }
 }
