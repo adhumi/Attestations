@@ -25,7 +25,18 @@ extension Attestation {
     }
 
     private var codeContent: String {
-        let code = "Cree le: \(creationDate);\n Nom: \(String(describing: lastName));\n Prenom: \(String(describing: firstName));\n Naissance: \(String(describing: birthDate)) a \(birthPlace);\n Adresse: \(address)  \(postalCode) \(city); Sortie: \(tripDate); Motifs: \(reasonIdentifier)"
+        let dateHourFormatter = DateFormatter()
+        dateHourFormatter.timeStyle = .short
+        dateHourFormatter.dateStyle = .short
+        dateHourFormatter.locale = Locale(identifier: "fr_FR")
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = .none
+        dateFormatter.dateStyle = .short
+        dateFormatter.locale = Locale(identifier: "fr_FR")
+
+        let code = "Cree le: \(dateHourFormatter.string(from: creationDate!));\n Nom: \(lastName!);\n Prenom: \(firstName!);\n Naissance: \(dateFormatter.string(from: birthDate!)) a \(birthPlace!);\n Adresse: \(address!) \(postalCode!) \(city!);\n Sortie: \(dateHourFormatter.string(from: tripDate!));\n Motifs: \(reasonIdentifier!)"
+        print(code)
         return code
     }
 
