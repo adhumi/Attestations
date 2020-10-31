@@ -61,6 +61,7 @@ struct AttestationView: View {
 
                 if let qrCode = attestation.qrCode {
                     Image(uiImage: qrCode)
+                        .interpolation(.none)
                         .resizable()
                         .scaledToFit()
                         .frame(width: 250.0, height: 250.0)
