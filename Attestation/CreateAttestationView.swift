@@ -12,7 +12,7 @@ struct CreateAttestationView: View {
 
     @State private var firstName: String = ""
     @State private var lastName: String = ""
-    @State private var birthDate = Date()
+    @State private var birthDate = Calendar.current.date(byAdding: .year, value: -18, to: Date()) ?? Date()
     @State private var birthPlace: String = ""
     @State private var address: String = ""
     @State private var city: String = ""
@@ -25,6 +25,7 @@ struct CreateAttestationView: View {
     @State private var errorMessage: String = ""
 
     var personalData: PersonalData? = nil
+    @State private var showPersonalDataAbstract = false
     let onGenerate: (AttestationFormData) -> ()
 
     init(isPresented: Binding<Bool>, personalData: PersonalData?, onGenerate: @escaping (AttestationFormData) -> ()) {
@@ -38,13 +39,33 @@ struct CreateAttestationView: View {
             Form {
                 Section(header: Text("Informations personnelles"),
                         footer: Text("Note : Tous les champs sont obligatoires")) {
-                    TextField("Prénom", text: $firstName)
-                    TextField("Nom", text: $lastName)
-                    DatePicker("Date de naissance", selection: $birthDate, displayedComponents: .date)
-                    TextField("Lieu de naissance", text: $birthPlace)
-                    TextField("Adresse", text: $address)
-                    TextField("Ville", text: $city)
-                    TextField("Code Postal", text: $postalCode).keyboardType(.numberPad)
+                    if showPersonalDataAbstract {
+                        HStack {
+                            VStack(alignment: .leading) {
+                                Text("\(firstName) \(lastName)").font(.subheadline)
+                                Text("Né·e le \(birthDateFormatter.string(from: birthDate)) à \(birthPlace)").font(.subheadline)
+                                Text("\(address) \(postalCode) \(city)").font(.subheadline)
+                            }
+                            .padding(.vertical, 8)
+
+                            Spacer()
+
+                            Button(action: {
+                                showPersonalDataAbstract = false
+                            }) {
+                                Image(systemName: "pencil").foregroundColor(.accentColor)
+                            }
+                            .buttonStyle(PlainButtonStyle())
+                        }
+                    } else {
+                        TextField("Prénom", text: $firstName)
+                        TextField("Nom", text: $lastName)
+                        DatePicker("Date de naissance", selection: $birthDate, displayedComponents: .date)
+                        TextField("Lieu de naissance", text: $birthPlace)
+                        TextField("Adresse", text: $address)
+                        TextField("Ville", text: $city)
+                        TextField("Code Postal", text: $postalCode).keyboardType(.numberPad)
+                    }
                 }
 
                 Section(header: Text("Date et heure de sortie")) {
@@ -67,8 +88,10 @@ struct CreateAttestationView: View {
 
                 Section(footer: Text(errorMessage)
                             .foregroundColor(Color.red)) {
-                    Toggle(isOn: $shouldSavePersonalData) {
-                        Text("Enregistrer mes informations")
+                    if !showPersonalDataAbstract {
+                        Toggle(isOn: $shouldSavePersonalData) {
+                            Text("Enregistrer mes informations")
+                        }
                     }
                     Button(action: {
                         if checkForm() {
@@ -112,7 +135,7 @@ struct CreateAttestationView: View {
                 self.address = personalData.address
                 self.city = personalData.city
                 self.postalCode = personalData.postalCode
-                self.shouldSavePersonalData = true
+                self.showPersonalDataAbstract = true
             }
             .navigationBarTitle("Nouvelle attestation", displayMode: .inline)
             .toolbar {
@@ -142,6 +165,14 @@ struct CreateAttestationView: View {
     func clearPersonalData() {
         UserDefaults.standard.set(nil, forKey: PersonalData.key)
     }
+
+    private let birthDateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.timeStyle = .none
+        formatter.dateStyle = .short
+        formatter.locale = Locale(identifier: "fr_FR")
+        return formatter
+    }()
 }
 
 struct CreateAttestationView_Previews: PreviewProvider {
