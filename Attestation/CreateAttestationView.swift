@@ -58,12 +58,18 @@ struct CreateAttestationView: View {
                         }
                     } else {
                         TextField("Prénom", text: $firstName)
+                            .textContentType(.givenName)
                         TextField("Nom", text: $lastName)
+                            .textContentType(.familyName)
                         DatePicker("Date de naissance", selection: $birthDate, displayedComponents: .date)
                         TextField("Lieu de naissance", text: $birthPlace)
                         TextField("Adresse", text: $address)
+                            .textContentType(.fullStreetAddress)
                         TextField("Ville", text: $city)
-                        TextField("Code Postal", text: $postalCode).keyboardType(.numberPad)
+                            .textContentType(.addressCity)
+                        TextField("Code Postal", text: $postalCode)
+                            .textContentType(.postalCode)
+                            .keyboardType(.numberPad)
                     }
                 }
 
