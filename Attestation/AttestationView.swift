@@ -70,6 +70,7 @@ struct AttestationView: View {
                             .background(Color.green)
                         Spacer()
                     }
+                    .padding(.vertical, 80)
                 }
             }
             .padding(.horizontal, 16)
