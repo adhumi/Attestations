@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CreateAttestationView: View {
-    @Binding var isPresented: Bool
+    @Environment(\.presentationMode) var presentationMode
 
     @State private var firstName: String = ""
     @State private var lastName: String = ""
@@ -28,8 +28,7 @@ struct CreateAttestationView: View {
     @State private var showPersonalDataAbstract = false
     let onGenerate: (AttestationFormData) -> ()
 
-    init(isPresented: Binding<Bool>, personalData: PersonalData?, onGenerate: @escaping (AttestationFormData) -> ()) {
-        self._isPresented = isPresented
+    init(personalData: PersonalData?, onGenerate: @escaping (AttestationFormData) -> ()) {
         self.onGenerate = onGenerate
         self.personalData = personalData
     }
@@ -95,7 +94,7 @@ struct CreateAttestationView: View {
                     }
                     Button(action: {
                         if checkForm() {
-                            isPresented = false
+                            presentationMode.wrappedValue.dismiss()
 
                             let formData = AttestationFormData(firstName: firstName,
                                                                lastName: lastName,
@@ -141,7 +140,7 @@ struct CreateAttestationView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
-                        isPresented = false
+                        presentationMode.wrappedValue.dismiss()
                     }) {
                         Label("Fermer", systemImage: "xmark")
                     }
@@ -177,6 +176,6 @@ struct CreateAttestationView: View {
 
 struct CreateAttestationView_Previews: PreviewProvider {
     static var previews: some View {
-        CreateAttestationView(isPresented: .constant(false), personalData: nil, onGenerate: { _ in })
+        CreateAttestationView(personalData: nil, onGenerate: { _ in })
     }
 }

@@ -49,7 +49,7 @@ struct ListView: View {
                     }) {
                         Label("Add Item", systemImage: "plus")
                     }.sheet(isPresented: $showingCreationForm) {
-                        CreateAttestationView(isPresented: $showingCreationForm, personalData: personalData) { formData in
+                        CreateAttestationView(personalData: personalData) { formData in
                             DispatchQueue.main.async {
                                 addAttestation(formData)
                             }
