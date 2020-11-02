@@ -141,6 +141,7 @@ struct CreateAttestationView: View {
                 self.city = personalData.city
                 self.postalCode = personalData.postalCode
                 self.showPersonalDataAbstract = true
+                self.shouldSavePersonalData = true
             }
             .navigationBarTitle("Nouvelle attestation", displayMode: .inline)
             .toolbar {
