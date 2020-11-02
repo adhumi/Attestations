@@ -139,7 +139,7 @@ struct AttestationCreationView: View {
                     Text("Enregistrer mes informations")
                 }
             }
-            Button(action: generateAttestation) {
+            Button(action: onAttestationGeneration) {
                 HStack {
                     Spacer()
                     Text("Générer mon attestation").bold()
@@ -178,11 +178,11 @@ extension AttestationCreationView {
 }
 
 extension AttestationCreationView {
-    func generateAttestation() {
+    func onAttestationGeneration() {
         if let formData = formData {
-            presentationMode.wrappedValue.dismiss()
+            isPresented.toggle()
 
-            onGenerate(formData)
+            saveAttestation(formData)
 
             if shouldSavePersonalData {
                 savePersonalData()
@@ -191,6 +191,31 @@ extension AttestationCreationView {
             }
         } else {
             errorMessage = "Attention, tous les champs sont obligatoires. Veuillez vérifier vos informations."
+        }
+    }
+
+    private func saveAttestation(_ formData: AttestationFormData) {
+        withAnimation {
+            let newAttestation = Attestation(context: viewContext)
+            newAttestation.creationDate = Date()
+            newAttestation.firstName = formData.firstName
+            newAttestation.lastName = formData.lastName
+            newAttestation.birthDate = formData.birthDate
+            newAttestation.birthPlace = formData.birthPlace
+            newAttestation.address = formData.address
+            newAttestation.city = formData.city
+            newAttestation.postalCode = formData.postalCode
+            newAttestation.tripDate = formData.tripDate
+            newAttestation.reasonIdentifier = formData.reason
+
+            do {
+                try viewContext.save()
+            } catch {
+                // Replace this implementation with code to handle the error appropriately.
+                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                let nsError = error as NSError
+                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            }
         }
     }
 
@@ -219,6 +244,6 @@ extension AttestationCreationView {
 
 struct CreateAttestationView_Previews: PreviewProvider {
     static var previews: some View {
-        AttestationCreationView(personalData: nil, onGenerate: { _ in })
+        AttestationCreationView(isPresented: .constant(true), personalData: nil)
     }
 }
