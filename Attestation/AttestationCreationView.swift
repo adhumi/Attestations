@@ -69,9 +69,14 @@ struct AttestationCreationView: View {
     var personalDataAbstract: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text("\(firstName) \(lastName)").font(.subheadline)
-                Text("Né·e le \(birthDateFormatter.string(from: birthDate)) à \(birthPlace)").font(.subheadline)
-                Text("\(address) \(postalCode) \(city)").font(.subheadline)
+                Text("\(firstName) \(lastName)")
+                    .font(.subheadline)
+                Text("Né·e le \(birthDateFormatter.string(from: birthDate)) à \(birthPlace)")
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+                Text("\(address) \(postalCode) \(city)")
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
             }
             .padding(.vertical, 8)
 
@@ -116,7 +121,7 @@ struct AttestationCreationView: View {
     }
 
     var attestationKindSection: some View {
-        Section(header: Text("Choisissez un motif de déplacement")) {
+        Section(header: Text("Motif de déplacement")) {
             Picker(selection: $selectedReason,
                    label: Text(AttestationKind.allCases[selectedReason]
                                 .shortDescription)) {
