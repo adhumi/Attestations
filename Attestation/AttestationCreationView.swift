@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct AttestationCreationView: View {
-    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.managedObjectContext) private var viewContext
+    @Binding var isPresented: Bool
 
     @State private var firstName: String = ""
     @State private var lastName: String = ""
@@ -26,7 +28,6 @@ struct AttestationCreationView: View {
 
     var personalData: PersonalData? = nil
     @State private var showPersonalDataAbstract = false
-    let onGenerate: (AttestationFormData) -> ()
 
     private let birthDateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -36,8 +37,8 @@ struct AttestationCreationView: View {
         return formatter
     }()
 
-    init(personalData: PersonalData?, onGenerate: @escaping (AttestationFormData) -> ()) {
-        self.onGenerate = onGenerate
+    init(isPresented: Binding<Bool>, personalData: PersonalData?) {
+        self._isPresented = isPresented
         self.personalData = personalData
     }
 
@@ -56,7 +57,7 @@ struct AttestationCreationView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
-                        presentationMode.wrappedValue.dismiss()
+                        isPresented = false
                     }) {
                         Label("Fermer", systemImage: "xmark")
                     }

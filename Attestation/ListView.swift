@@ -48,40 +48,11 @@ struct ListView: View {
                         self.showingCreationForm.toggle()
                     }) {
                         Label("Add Item", systemImage: "plus")
-                    }.sheet(isPresented: $showingCreationForm) {
-                        AttestationCreationView(personalData: personalData) { formData in
-                            DispatchQueue.main.async {
-                                addAttestation(formData)
-                            }
-                        }
                     }
                 }
             }
-        }
-    }
-
-    private func addAttestation(_ formData: AttestationFormData) {
-        withAnimation {
-            let newAttestation = Attestation(context: viewContext)
-            newAttestation.creationDate = Date()
-            newAttestation.firstName = formData.firstName
-            newAttestation.lastName = formData.lastName
-            newAttestation.birthDate = formData.birthDate
-            newAttestation.birthPlace = formData.birthPlace
-            newAttestation.address = formData.address
-            newAttestation.city = formData.city
-            newAttestation.postalCode = formData.postalCode
-            newAttestation.tripDate = formData.tripDate
-            newAttestation.reasonIdentifier = formData.reason
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
+        }.sheet(isPresented: $showingCreationForm) {
+            AttestationCreationView(isPresented: $showingCreationForm, personalData: personalData)
         }
     }
 
