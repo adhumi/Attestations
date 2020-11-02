@@ -52,7 +52,7 @@ struct CreateAttestationView: View {
                             Button(action: {
                                 showPersonalDataAbstract = false
                             }) {
-                                Image(systemName: "pencil").foregroundColor(.accentColor)
+                                Image(systemName: "info.circle").foregroundColor(.accentColor)
                             }
                             .buttonStyle(PlainButtonStyle())
                         }
