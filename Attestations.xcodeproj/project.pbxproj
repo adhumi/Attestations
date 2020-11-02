@@ -17,7 +17,7 @@
 		93F5AD04254B75F900AF5E61 /* Attestation.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 93F5AD02254B75F900AF5E61 /* Attestation.xcdatamodeld */; };
 		93F5AD0F254B75F900AF5E61 /* AttestationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F5AD0E254B75F900AF5E61 /* AttestationTests.swift */; };
 		93F5AD1A254B75FA00AF5E61 /* AttestationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F5AD19254B75FA00AF5E61 /* AttestationUITests.swift */; };
-		93F5AD2E254B7E8A00AF5E61 /* CreateAttestationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F5AD2D254B7E8A00AF5E61 /* CreateAttestationView.swift */; };
+		93F5AD2E254B7E8A00AF5E61 /* AttestationCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F5AD2D254B7E8A00AF5E61 /* AttestationCreationView.swift */; };
 		93F5AD36254B95C400AF5E61 /* AttestationFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F5AD35254B95C400AF5E61 /* AttestationFormData.swift */; };
 		93F5AD3B254BA15700AF5E61 /* AttestationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F5AD3A254BA15700AF5E61 /* AttestationView.swift */; };
 		93F5AD4F254BAA4E00AF5E61 /* Attestation+QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F5AD4E254BAA4E00AF5E61 /* Attestation+QRCode.swift */; };
@@ -57,7 +57,7 @@
 		93F5AD15254B75FA00AF5E61 /* AttestationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AttestationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		93F5AD19254B75FA00AF5E61 /* AttestationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttestationUITests.swift; sourceTree = "<group>"; };
 		93F5AD1B254B75FA00AF5E61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		93F5AD2D254B7E8A00AF5E61 /* CreateAttestationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAttestationView.swift; sourceTree = "<group>"; };
+		93F5AD2D254B7E8A00AF5E61 /* AttestationCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttestationCreationView.swift; sourceTree = "<group>"; };
 		93F5AD35254B95C400AF5E61 /* AttestationFormData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttestationFormData.swift; sourceTree = "<group>"; };
 		93F5AD3A254BA15700AF5E61 /* AttestationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttestationView.swift; sourceTree = "<group>"; };
 		93F5AD4E254BAA4E00AF5E61 /* Attestation+QRCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Attestation+QRCode.swift"; sourceTree = "<group>"; };
@@ -113,7 +113,7 @@
 			children = (
 				93F5ACF7254B75F800AF5E61 /* AttestationApp.swift */,
 				93F5ACF9254B75F800AF5E61 /* ListView.swift */,
-				93F5AD2D254B7E8A00AF5E61 /* CreateAttestationView.swift */,
+				93F5AD2D254B7E8A00AF5E61 /* AttestationCreationView.swift */,
 				93F5AD35254B95C400AF5E61 /* AttestationFormData.swift */,
 				93353C4A254CDC920046BEF4 /* PersonalData.swift */,
 				93F5AD3A254BA15700AF5E61 /* AttestationView.swift */,
@@ -292,7 +292,7 @@
 				93F5AD4F254BAA4E00AF5E61 /* Attestation+QRCode.swift in Sources */,
 				93F5ACFA254B75F800AF5E61 /* ListView.swift in Sources */,
 				93F5ACF8254B75F800AF5E61 /* AttestationApp.swift in Sources */,
-				93F5AD2E254B7E8A00AF5E61 /* CreateAttestationView.swift in Sources */,
+				93F5AD2E254B7E8A00AF5E61 /* AttestationCreationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
