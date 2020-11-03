@@ -187,20 +187,24 @@ extension AttestationCreationView {
         if let formData = formData {
             isPresented.toggle()
 
-            saveAttestation(formData)
+            do {
+                try saveAttestation(formData)
 
-            if shouldSavePersonalData {
-                savePersonalData()
-            } else {
-                clearPersonalData()
+                if shouldSavePersonalData {
+                    savePersonalData()
+                } else {
+                    clearPersonalData()
+                }
+            } catch let error {
+                errorMessage = "Une erreur est survenue :\n\(error.localizedDescription)"
             }
         } else {
             errorMessage = "Attention, tous les champs sont obligatoires. Veuillez vérifier vos informations."
         }
     }
 
-    private func saveAttestation(_ formData: AttestationFormData) {
-        withAnimation {
+    private func saveAttestation(_ formData: AttestationFormData) throws {
+        try withAnimation {
             let newAttestation = Attestation(context: viewContext)
             newAttestation.creationDate = Date()
             newAttestation.firstName = formData.firstName
@@ -213,14 +217,7 @@ extension AttestationCreationView {
             newAttestation.tripDate = formData.tripDate
             newAttestation.reasonIdentifier = formData.reason
 
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
+            try viewContext.save()
         }
     }
 
