@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		93353C3B254CC3F20046BEF4 /* AttestationKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93353C3A254CC3F20046BEF4 /* AttestationKind.swift */; };
 		93353C4B254CDC920046BEF4 /* PersonalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93353C4A254CDC920046BEF4 /* PersonalData.swift */; };
+		93B3C8A825517AF9007A6674 /* AttestationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B3C8A725517AF9007A6674 /* AttestationService.swift */; };
 		93F5ACF8254B75F800AF5E61 /* AttestationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F5ACF7254B75F800AF5E61 /* AttestationApp.swift */; };
 		93F5ACFA254B75F800AF5E61 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F5ACF9254B75F800AF5E61 /* ListView.swift */; };
 		93F5ACFC254B75F900AF5E61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93F5ACFB254B75F900AF5E61 /* Assets.xcassets */; };
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		93353C3A254CC3F20046BEF4 /* AttestationKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttestationKind.swift; sourceTree = "<group>"; };
 		93353C4A254CDC920046BEF4 /* PersonalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalData.swift; sourceTree = "<group>"; };
+		93B3C8A725517AF9007A6674 /* AttestationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttestationService.swift; sourceTree = "<group>"; };
 		93F5ACF4254B75F800AF5E61 /* Attestation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Attestation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93F5ACF7254B75F800AF5E61 /* AttestationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttestationApp.swift; sourceTree = "<group>"; };
 		93F5ACF9254B75F800AF5E61 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				93F5ACF7254B75F800AF5E61 /* AttestationApp.swift */,
+				93B3C8A725517AF9007A6674 /* AttestationService.swift */,
 				93F5ACF9254B75F800AF5E61 /* ListView.swift */,
 				93F5AD2D254B7E8A00AF5E61 /* AttestationCreationView.swift */,
 				93F5AD35254B95C400AF5E61 /* AttestationFormData.swift */,
@@ -290,6 +293,7 @@
 				93353C4B254CDC920046BEF4 /* PersonalData.swift in Sources */,
 				93F5AD01254B75F900AF5E61 /* Persistence.swift in Sources */,
 				93F5AD4F254BAA4E00AF5E61 /* Attestation+QRCode.swift in Sources */,
+				93B3C8A825517AF9007A6674 /* AttestationService.swift in Sources */,
 				93F5ACFA254B75F800AF5E61 /* ListView.swift in Sources */,
 				93F5ACF8254B75F800AF5E61 /* AttestationApp.swift in Sources */,
 				93F5AD2E254B7E8A00AF5E61 /* AttestationCreationView.swift in Sources */,

@@ -13,7 +13,7 @@ struct AttestationApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ListView()
+            ListView(service: AttestationService(persistenceController: persistenceController))
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

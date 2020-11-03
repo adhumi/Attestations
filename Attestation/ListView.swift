@@ -9,13 +9,15 @@ import SwiftUI
 import CoreData
 
 struct ListView: View {
-    @Environment(\.managedObjectContext) private var viewContext
+    let service: AttestationService
 
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Attestation.tripDate, ascending: false)],
-        animation: .default)
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Attestation.tripDate, ascending: false)],
+                  animation: .default)
+    var attestations: FetchedResults<Attestation>
 
-    private var attestations: FetchedResults<Attestation>
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Attestation.tripDate, ascending: false)],
+                  animation: .default)
+    var recentAttestations: FetchedResults<Attestation>
 
     @State var showingCreationForm = false
 
@@ -58,16 +60,8 @@ struct ListView: View {
 
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
-            offsets.map { attestations[$0] }.forEach(viewContext.delete)
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
+            let attestationsToDelete = offsets.map { attestations[$0] }
+            try? service.delete(attestations: attestationsToDelete)
         }
     }
 
@@ -89,6 +83,6 @@ private let itemFormatter: DateFormatter = {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ListView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        ListView(service: AttestationService(persistenceController: PersistenceController.preview))
     }
 }
