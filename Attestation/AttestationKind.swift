@@ -109,6 +109,15 @@ enum AttestationKind: String, CaseIterable {
                 return "Participation à des missions d'intérêt général sur demande de l'autorité administrative."
         }
     }
+
+    var duration: TimeInterval? {
+        switch self {
+            case .promenade:
+                return 3 * 60 * 60
+            default:
+                return nil
+        }
+    }
 }
 
 extension Attestation {

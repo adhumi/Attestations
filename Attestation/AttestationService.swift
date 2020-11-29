@@ -11,7 +11,7 @@ import CoreData
 class AttestationService {
     private let persistenceController: PersistenceController
 
-    private var context: NSManagedObjectContext {
+    var context: NSManagedObjectContext {
         persistenceController.container.viewContext
     }
 

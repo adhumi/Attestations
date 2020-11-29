@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		93353C3B254CC3F20046BEF4 /* AttestationKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93353C3A254CC3F20046BEF4 /* AttestationKind.swift */; };
 		93353C4B254CDC920046BEF4 /* PersonalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93353C4A254CDC920046BEF4 /* PersonalData.swift */; };
+		93405A942572FC3C000F98E6 /* KindPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93405A932572FC3C000F98E6 /* KindPickerView.swift */; };
 		93B3C8A825517AF9007A6674 /* AttestationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B3C8A725517AF9007A6674 /* AttestationService.swift */; };
 		93F5ACF8254B75F800AF5E61 /* AttestationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F5ACF7254B75F800AF5E61 /* AttestationApp.swift */; };
 		93F5ACFA254B75F800AF5E61 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F5ACF9254B75F800AF5E61 /* ListView.swift */; };
@@ -44,6 +45,7 @@
 /* Begin PBXFileReference section */
 		93353C3A254CC3F20046BEF4 /* AttestationKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttestationKind.swift; sourceTree = "<group>"; };
 		93353C4A254CDC920046BEF4 /* PersonalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalData.swift; sourceTree = "<group>"; };
+		93405A932572FC3C000F98E6 /* KindPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KindPickerView.swift; sourceTree = "<group>"; };
 		93B3C8A725517AF9007A6674 /* AttestationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttestationService.swift; sourceTree = "<group>"; };
 		93F5ACF4254B75F800AF5E61 /* Attestation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Attestation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93F5ACF7254B75F800AF5E61 /* AttestationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttestationApp.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				93F5AD3A254BA15700AF5E61 /* AttestationView.swift */,
 				93F5AD4E254BAA4E00AF5E61 /* Attestation+QRCode.swift */,
 				93353C3A254CC3F20046BEF4 /* AttestationKind.swift */,
+				93405A932572FC3C000F98E6 /* KindPickerView.swift */,
 				93F5ACFB254B75F900AF5E61 /* Assets.xcassets */,
 				93F5AD00254B75F900AF5E61 /* Persistence.swift */,
 				93F5AD05254B75F900AF5E61 /* Info.plist */,
@@ -296,6 +299,7 @@
 				93B3C8A825517AF9007A6674 /* AttestationService.swift in Sources */,
 				93F5ACFA254B75F800AF5E61 /* ListView.swift in Sources */,
 				93F5ACF8254B75F800AF5E61 /* AttestationApp.swift in Sources */,
+				93405A942572FC3C000F98E6 /* KindPickerView.swift in Sources */,
 				93F5AD2E254B7E8A00AF5E61 /* AttestationCreationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

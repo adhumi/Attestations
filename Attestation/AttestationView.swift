@@ -21,7 +21,7 @@ struct AttestationView: View {
                         .bold()
                         .multilineTextAlignment(.center)
                         .lineLimit(nil)
-                    Text("En application des mesures générales nécessaires pour faire face à l’épidémie de covid-19 dans le cadre de l’état d’urgence sanitaire.")
+                    Text("En application du décret n°2020-1310 du 29 octobre 2020 prescrivant les mesures générales nécessaires pour faire face à l'épidémie de Covid19 dans le cadre de l'état d'urgence sanitaire.")
                         .font(.footnote)
                         .multilineTextAlignment(.center)
                 }
@@ -43,7 +43,7 @@ struct AttestationView: View {
                 }
 
                 VStack(alignment: .leading, spacing: 8) {
-                    Text("certifie que mon déplacement est lié au motif suivant autorisé en application des mesures générales nécessaires pour faire face à l'épidémie de Covid 19 dans le cadre de l'état d'urgence sanitaire :").font(.subheadline).foregroundColor(.secondary)
+                    Text("certifie que mon déplacement est lié au motif suivant autorisé par le décret n°2020-1310 du 29 octobre 2020 prescrivant les mesures générales nécessaires pour faire face à l'épidémie de Covid 19 dans le cadre de l'état d'urgence sanitaire :").font(.subheadline).foregroundColor(.secondary)
                     HStack {
                         Image(systemName: attestation.kind!.symbolName)
                             .foregroundColor(attestation.kind!.color)
