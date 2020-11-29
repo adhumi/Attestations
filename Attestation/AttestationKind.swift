@@ -50,7 +50,7 @@ enum AttestationKind: String, CaseIterable {
             case .ecole:
                 return "book.fill"
             case .courses:
-                return "cart.fill"
+                return "bag.fill.badge.plus"
             case .sante:
                 return "staroflife.circle.fill"
             case .famille:
