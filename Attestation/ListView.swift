@@ -76,6 +76,12 @@ struct ListView: View {
                     }
                 }
                 .onDelete(perform: deleteItems)
+
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("Comment mes données sont-elles utilisées ?")
+                        .font(.headline)
+                    Text("Les données que vous entrez ne sont utilisées que par vous, pour générer des attestations plus rapidement. Elles ne sont envoyées à aucun serveur et nous ne faisons aucune analyse de vos données de navigation.")
+                }.padding(.vertical, 40)
             }
             .navigationTitle("Attestations")
         }.sheet(isPresented: $showingCreationForm) {
