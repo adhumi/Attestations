@@ -110,10 +110,10 @@ struct ListView: View {
                 Image(systemName: attestation.kind!.symbolName)
                     .font(.system(size: 34))
                     .foregroundColor(attestation.kind!.color)
-                Spacer(minLength: 12)
                 Text(attestation.kind!.shortDescription)
                     .font(.title3)
                     .bold()
+                    .padding(.top, 12)
 
                 if let duration = attestation.kind?.duration {
                     if attestation.tripDate! < Date() {
