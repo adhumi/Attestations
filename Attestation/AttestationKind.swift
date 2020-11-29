@@ -18,6 +18,31 @@ enum AttestationKind: String, CaseIterable {
     case convocation
     case missions
 
+    init?(rawValue: String) {
+        switch rawValue {
+            case "sport_animaux":
+                self = .promenade
+            case "travail":
+                self = .travail
+            case "enfants":
+                self = .ecole
+            case "achats_culturel_cultuel", "achats":
+                self = .courses
+            case "sante":
+                self = .sante
+            case "famille":
+                self = .famille
+            case "handicap":
+                self = .assistance
+            case "convocation":
+                self = .convocation
+            case "missions":
+                self = .missions
+            default:
+                self = .promenade
+        }
+    }
+
     var color: Color {
         switch self {
             case .promenade:
