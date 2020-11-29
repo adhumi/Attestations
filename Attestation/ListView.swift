@@ -97,7 +97,7 @@ struct ListView: View {
         }
         .buttonStyle(PlainButtonStyle())
         .frame(height: 250)
-        .background(Color(red: 0.95, green: 0.95, blue: 0.97))
+        .background(Color(UIColor.secondarySystemBackground))
         .cornerRadius(12)
     }
 
@@ -141,7 +141,7 @@ struct ListView: View {
             Spacer()
         }
         .frame(height: 250)
-        .background(Color(red: 0.95, green: 0.95, blue: 0.97))
+        .background(Color(UIColor.secondarySystemBackground))
         .cornerRadius(12)
     }
 
@@ -179,7 +179,7 @@ struct ListView: View {
         }
         .frame(height: 100)
         .buttonStyle(PlainButtonStyle())
-        .background(Color(red: 0.95, green: 0.95, blue: 0.97))
+        .background(Color(UIColor.secondarySystemBackground))
         .cornerRadius(12)
     }
 

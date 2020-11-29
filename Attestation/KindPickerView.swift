@@ -37,11 +37,11 @@ struct KindPickerView: View {
                     }
                     .padding(.horizontal, 16)
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 60, maxHeight: .infinity)
-                    .background(Color(red: 0.95, green: 0.95, blue: 0.97))
+                    .background(Color(UIColor.secondarySystemBackground))
                     .cornerRadius(12)
                     .overlay(
                         RoundedRectangle(cornerRadius: 12)
-                            .stroke(Color(red: 0.75, green: 0.75, blue: 0.77), lineWidth: selectedIndex == index ? 1 : 0)
+                            .stroke(Color(UIColor.quaternaryLabel), lineWidth: selectedIndex == index ? 1 : 0)
                     )
                     .onTapGesture {
                         selectedIndex = index
