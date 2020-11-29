@@ -22,6 +22,7 @@ struct ListView: View {
     @State var showingCreationForm = false
     @State var showingFirstPicker = false
     @State var showingSecondPicker = false
+    @State var showingAttestation = false
 
     @State private var firstSelectedReason: Int = UserDefaults.standard.value(forKey: "firstSelectedReason") as? Int ?? 0
     @State private var secondSelectedReason: Int = UserDefaults.standard.value(forKey: "secondSelectedReason") as? Int ?? 1
@@ -58,7 +59,7 @@ struct ListView: View {
 
 
                 ForEach(attestations) { attestation in
-                    NavigationLink(destination: AttestationView(attestation: attestation)) {
+                    NavigationLink(destination: AttestationView(isPresented: .constant(false), attestation: attestation)) {
                         HStack {
                             Image(systemName: attestation.kind!.symbolName)
                                 .font(.system(size: 20))
@@ -130,10 +131,15 @@ struct ListView: View {
                 }
 
                 Spacer(minLength: 36)
-                Button(action: {}) {
+                Button(action: {
+                    showingAttestation.toggle()
+                }) {
                     Text("Afficher")
                         .font(.subheadline)
                         .foregroundColor(.accentColor)
+                }
+                .sheet(isPresented: $showingAttestation) {
+                    AttestationView(isPresented: $showingAttestation, attestation: attestation)
                 }
                 .buttonStyle(PlainButtonStyle())
                 Spacer()
