@@ -29,6 +29,8 @@ struct AttestationCreationView: View {
     var personalData: PersonalData? = nil
     @State private var showPersonalDataAbstract = false
 
+    @State private var showingPicker = false
+
     private let birthDateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.timeStyle = .none
@@ -92,8 +94,11 @@ struct AttestationCreationView: View {
     }
 
     var personalDataSection: some View {
-        Section(header: Text("Informations personnelles"),
-                footer: Text("Note : Tous les champs sont obligatoires")) {
+        let header = Text("Informations personnelles")
+        let footer = showPersonalDataAbstract ? nil : Text("Note : Tous les champs sont obligatoires")
+
+        return Section(header: header,
+                footer: footer) {
             if showPersonalDataAbstract {
                 personalDataAbstract
             } else {
@@ -116,23 +121,29 @@ struct AttestationCreationView: View {
 
     var dateTimeSection: some View {
         Section(header: Text("Date et heure de sortie")) {
-            DatePicker("Date et heure de sortie", selection: $tripDate).labelsHidden()
+            HStack {
+                Image(systemName: "calendar")
+                DatePicker("Date et heure de sortie", selection: $tripDate).labelsHidden()
+            }
         }
     }
 
     var attestationKindSection: some View {
         Section(header: Text("Motif de déplacement")) {
-            Picker(selection: $selectedReason,
-                   label: Text(AttestationKind.allCases[selectedReason]
-                                .shortDescription)) {
-                ForEach(0 ..< AttestationKind.allCases.count) { index in
-                    HStack {
-                        let attestationKind = AttestationKind.allCases[index]
-                        Image(systemName: attestationKind.symbolName)
-                        Text(attestationKind.shortDescription).tag(index)
-                    }
+            Button(action: {
+                showingPicker.toggle()
+            }, label: {
+                HStack(alignment: .center) {
+                    let attestationKind = AttestationKind.allCases[selectedReason]
+                    Image(systemName: attestationKind.symbolName).foregroundColor(attestationKind.color)
+                    Text(attestationKind.shortDescription).tag(selectedReason)
+                    Spacer()
                 }
-            }.pickerStyle(MenuPickerStyle())
+            })
+            .accentColor(Color(UIColor.darkText))
+            .sheet(isPresented: $showingPicker) {
+                KindPickerView(isPresented: $showingPicker, selectedIndex: $selectedReason) { newValue in }
+            }
         }
     }
 
