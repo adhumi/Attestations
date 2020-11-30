@@ -140,7 +140,7 @@ struct AttestationCreationView: View {
                     Spacer()
                 }
             })
-            .accentColor(Color(UIColor.darkText))
+            .accentColor(.primary)
             .sheet(isPresented: $showingPicker) {
                 KindPickerView(isPresented: $showingPicker, selectedIndex: $selectedReason) { newValue in }
             }
