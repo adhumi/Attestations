@@ -92,13 +92,13 @@ enum AttestationKind: String, CaseIterable {
     var shortDescription: String {
         switch self {
             case .promenade:
-                return "Promenade & sport"
+                return "Promenade & sport"
             case .travail:
                 return "Travail"
             case .ecole:
                 return "École"
             case .courses:
-                return "Courses & culture"
+                return "Courses & culture"
             case .sante:
                 return "Santé"
             case .famille:
