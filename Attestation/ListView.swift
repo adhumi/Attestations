@@ -24,8 +24,16 @@ struct ListView: View {
     @State var showingSecondPicker = false
     @State var showingAttestation = false
 
-    @State private var firstSelectedReason: Int = UserDefaults.standard.value(forKey: "firstSelectedReason") as? Int ?? 0
-    @State private var secondSelectedReason: Int = UserDefaults.standard.value(forKey: "secondSelectedReason") as? Int ?? 1
+    @State private var firstSelectedReason: Int = {
+        var value = UserDefaults.standard.value(forKey: "firstSelectedReason") as? Int ?? 0
+        guard value < AttestationKind.actives.count else { return 0 }
+        return value
+    }()
+    @State private var secondSelectedReason: Int = {
+        var value = UserDefaults.standard.value(forKey: "secondSelectedReason") as? Int ?? 1
+        guard value < AttestationKind.actives.count else { return 1 }
+        return value
+    }()
 
     var body: some View {
         NavigationView {
