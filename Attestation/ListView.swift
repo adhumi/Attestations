@@ -38,14 +38,14 @@ struct ListView: View {
                     }
 
                     HStack(spacing: 16) {
-                        newAttestationButton(kind: AttestationKind.allCases[firstSelectedReason], showPicker: { showingFirstPicker.toggle() })
+                        newAttestationButton(kind: AttestationKind.actives[firstSelectedReason], showPicker: { showingFirstPicker.toggle() })
                             .sheet(isPresented: $showingFirstPicker) {
                                 KindPickerView(isPresented: $showingFirstPicker, selectedIndex: $firstSelectedReason) { newValue in
                                     UserDefaults.standard.set(newValue, forKey: "firstSelectedReason")
                                 }
                             }
 
-                        newAttestationButton(kind: AttestationKind.allCases[secondSelectedReason], showPicker: { showingSecondPicker.toggle() })
+                        newAttestationButton(kind: AttestationKind.actives[secondSelectedReason], showPicker: { showingSecondPicker.toggle() })
                             .sheet(isPresented: $showingSecondPicker) {
                                 KindPickerView(isPresented: $showingSecondPicker, selectedIndex: $secondSelectedReason) { newValue in
                                     UserDefaults.standard.set(newValue, forKey: "secondSelectedReason")
@@ -166,7 +166,7 @@ struct ListView: View {
                         Image(systemName: kind.symbolName)
                             .font(.system(size: 20))
                             .foregroundColor(kind.color)
-                        Text(kind.shortDescription)
+                        Text(kind.superShortDescription)
                             .font(.subheadline)
                             .multilineTextAlignment(.center)
                     }

@@ -14,7 +14,7 @@ struct KindPickerView: View {
     var onChange: (Int) -> Void
 
     let columns = [
-        GridItem(.flexible(), spacing: 12),
+//        GridItem(.flexible(), spacing: 12),
         GridItem(.flexible(), spacing: 12)
     ]
 
@@ -28,9 +28,9 @@ struct KindPickerView: View {
             }.padding()
 
             LazyVGrid(columns: columns, spacing: 12) {
-                ForEach(0 ..< AttestationKind.allCases.count) { index in
+                ForEach(0 ..< AttestationKind.actives.count) { index in
                     HStack(alignment: .center) {
-                        let attestationKind = AttestationKind.allCases[index]
+                        let attestationKind = AttestationKind.actives[index]
                         Image(systemName: attestationKind.symbolName).foregroundColor(attestationKind.color)
                         Text(attestationKind.shortDescription).tag(index)
                         Spacer()

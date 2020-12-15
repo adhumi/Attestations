@@ -17,7 +17,13 @@ enum AttestationKind: String, CaseIterable {
     case assistance = "handicap"
     case convocation
     case missions
-
+    case transits
+    case animaux
+    
+    static var actives: [AttestationKind] {
+        return [.travail, .sante, .famille, .assistance, .convocation, .missions, .transits, .animaux]
+    }
+    
     init?(rawValue: String) {
         switch rawValue {
             case "sport_animaux":
@@ -38,6 +44,10 @@ enum AttestationKind: String, CaseIterable {
                 self = .convocation
             case "missions":
                 self = .missions
+            case "transits":
+                self = .transits
+            case "animaux":
+                self = .animaux
             default:
                 self = .promenade
         }
@@ -60,9 +70,14 @@ enum AttestationKind: String, CaseIterable {
             case .assistance:
                 return Color.orange
             case .convocation:
-                return Color.pink
+                return Color(Color.RGBColorSpace.displayP3, red: 90/255.0, green: 200/255.0, blue: 250/255.0, opacity: 1)
             case .missions:
                 return Color.yellow
+            case .transits:
+                return Color(Color.RGBColorSpace.displayP3, red: 1, green: 0.16, blue: 0.33, opacity: 1)
+            case .animaux:
+                return Color(Color.RGBColorSpace.displayP3, red: 0.2, green: 0.78, blue: 0.35, opacity: 1)
+                
         }
     }
 
@@ -81,11 +96,15 @@ enum AttestationKind: String, CaseIterable {
             case .famille:
                 return "person.2.square.stack"
             case .assistance:
-                return "heart.circle.fill"
+                return "figure.wave.circle.fill"
             case .convocation:
                 return "scroll.fill"
             case .missions:
                 return "star.square.fill"
+            case .transits:
+                return "airplane.circle.fill"
+            case .animaux:
+                return "drop.fill"
         }
     }
 
@@ -94,13 +113,40 @@ enum AttestationKind: String, CaseIterable {
             case .promenade:
                 return "Promenade & sport"
             case .travail:
-                return "Travail"
+                return "Travail et formation"
             case .ecole:
                 return "École"
             case .courses:
                 return "Courses & culture"
             case .sante:
-                return "Santé"
+                return "Docteur, pharmacie"
+            case .famille:
+                return "Famille"
+            case .assistance:
+                return "Assistance"
+            case .convocation:
+                return "Convocation administrative ou judiciaire"
+            case .missions:
+                return "Missions"
+            case .transits:
+                return "Voyages longue distance"
+            case .animaux:
+                return "Sortie animal de compagnie"
+        }
+    }
+
+    var superShortDescription: String {
+        switch self {
+            case .promenade:
+                return "Promenade"
+            case .travail:
+                return "Travail et formation"
+            case .ecole:
+                return "École"
+            case .courses:
+                return "Courses & culture"
+            case .sante:
+                return "Docteur, pharmacie"
             case .famille:
                 return "Famille"
             case .assistance:
@@ -109,9 +155,13 @@ enum AttestationKind: String, CaseIterable {
                 return "Convocation"
             case .missions:
                 return "Missions"
+            case .transits:
+                return "Voyages"
+            case .animaux:
+                return "Sortie animal"
         }
     }
-
+    
     var longDescription: String {
         switch self {
             case .promenade:
@@ -123,15 +173,19 @@ enum AttestationKind: String, CaseIterable {
             case .courses:
                 return "Déplacements pour se rendre dans un établissement culturel autorisé ou un lieu de culte, déplacements pour effectuer des achats de biens, pour des services dont la fourniture est autorisée, pour les retraits de commandes et les livraisons à domicile."
             case .sante:
-                return "Consultations, examens et soins ne pouvant être assurés à distance et l’achat de médicaments."
+                return "Déplacements pour des consultations et soins ne pouvant être assurés à distance et ne pouvant être différés ou pour l'achat de produits de santé."
             case .famille:
                 return "Déplacements pour motif familial impérieux, pour l'assistance aux personnes vulnérables et précaires ou la garde d'enfants."
             case .assistance:
                 return "Déplacement des personnes en situation de handicap et leur accompagnant."
             case .convocation:
-                return "Convocation judiciaire ou administrative et pour se rendre dans un service public."
+                return "Déplacements pour répondre à une convocation judiciaire ou administrative."
             case .missions:
                 return "Participation à des missions d'intérêt général sur demande de l'autorité administrative."
+            case .transits:
+                return "Déplacements liés à des transits ferroviaires ou aériens pour des déplacements de longues distances."
+            case .animaux:
+                return "Déplacements brefs, dans un rayon maximal d'un kilomètre autour du domicile pour les besoins des animaux de compagnie."
         }
     }
 
