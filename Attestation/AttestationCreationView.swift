@@ -134,7 +134,7 @@ struct AttestationCreationView: View {
                 showingPicker.toggle()
             }, label: {
                 HStack(alignment: .center) {
-                    let attestationKind = AttestationKind.allCases[selectedReason]
+                    let attestationKind = AttestationKind.actives[selectedReason]
                     Image(systemName: attestationKind.symbolName).foregroundColor(attestationKind.color)
                     Text(attestationKind.shortDescription).tag(selectedReason)
                     Spacer()
@@ -242,7 +242,7 @@ extension AttestationCreationView {
                                    city: city,
                                    postalCode: postalCode,
                                    tripDate: tripDate,
-                                   reason: AttestationKind.allCases[selectedReason].rawValue)
+                                   reason: AttestationKind.actives[selectedReason].rawValue)
     }
 
     func checkForm() -> Bool {
