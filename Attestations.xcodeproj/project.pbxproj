@@ -10,6 +10,8 @@
 		93353C3B254CC3F20046BEF4 /* AttestationKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93353C3A254CC3F20046BEF4 /* AttestationKind.swift */; };
 		93353C4B254CDC920046BEF4 /* PersonalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93353C4A254CDC920046BEF4 /* PersonalData.swift */; };
 		93405A942572FC3C000F98E6 /* KindPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93405A932572FC3C000F98E6 /* KindPickerView.swift */; };
+		9352319625B46D1F006AB8A0 /* Screenshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9352319525B46D1F006AB8A0 /* Screenshots.swift */; };
+		935231A225B46D68006AB8A0 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935231A125B46D68006AB8A0 /* SnapshotHelper.swift */; };
 		93B3C8A825517AF9007A6674 /* AttestationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B3C8A725517AF9007A6674 /* AttestationService.swift */; };
 		93F5ACF8254B75F800AF5E61 /* AttestationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F5ACF7254B75F800AF5E61 /* AttestationApp.swift */; };
 		93F5ACFA254B75F800AF5E61 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F5ACF9254B75F800AF5E61 /* ListView.swift */; };
@@ -26,6 +28,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		9352319825B46D1F006AB8A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 93F5ACEC254B75F800AF5E61 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 93F5ACF3254B75F800AF5E61;
+			remoteInfo = Attestation;
+		};
 		93F5AD0B254B75F900AF5E61 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 93F5ACEC254B75F800AF5E61 /* Project object */;
@@ -46,6 +55,10 @@
 		93353C3A254CC3F20046BEF4 /* AttestationKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttestationKind.swift; sourceTree = "<group>"; };
 		93353C4A254CDC920046BEF4 /* PersonalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalData.swift; sourceTree = "<group>"; };
 		93405A932572FC3C000F98E6 /* KindPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KindPickerView.swift; sourceTree = "<group>"; };
+		9352319325B46D1F006AB8A0 /* Screenshots.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Screenshots.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9352319525B46D1F006AB8A0 /* Screenshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screenshots.swift; sourceTree = "<group>"; };
+		9352319725B46D1F006AB8A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		935231A125B46D68006AB8A0 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = "../../../../../Volumes/Big Sur/Users/ahumiliere/Developer/Attestations/fastlane/SnapshotHelper.swift"; sourceTree = "<group>"; };
 		93B3C8A725517AF9007A6674 /* AttestationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttestationService.swift; sourceTree = "<group>"; };
 		93F5ACF4254B75F800AF5E61 /* Attestation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Attestation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93F5ACF7254B75F800AF5E61 /* AttestationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttestationApp.swift; sourceTree = "<group>"; };
@@ -68,6 +81,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		9352319025B46D1F006AB8A0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		93F5ACF1254B75F800AF5E61 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -92,12 +112,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9352319425B46D1F006AB8A0 /* Screenshots */ = {
+			isa = PBXGroup;
+			children = (
+				935231A125B46D68006AB8A0 /* SnapshotHelper.swift */,
+				9352319525B46D1F006AB8A0 /* Screenshots.swift */,
+				9352319725B46D1F006AB8A0 /* Info.plist */,
+			);
+			path = Screenshots;
+			sourceTree = "<group>";
+		};
 		93F5ACEB254B75F800AF5E61 = {
 			isa = PBXGroup;
 			children = (
 				93F5ACF6254B75F800AF5E61 /* Attestation */,
 				93F5AD0D254B75F900AF5E61 /* AttestationTests */,
 				93F5AD18254B75FA00AF5E61 /* AttestationUITests */,
+				9352319425B46D1F006AB8A0 /* Screenshots */,
 				93F5ACF5254B75F800AF5E61 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -108,6 +139,7 @@
 				93F5ACF4254B75F800AF5E61 /* Attestation.app */,
 				93F5AD0A254B75F900AF5E61 /* AttestationTests.xctest */,
 				93F5AD15254B75FA00AF5E61 /* AttestationUITests.xctest */,
+				9352319325B46D1F006AB8A0 /* Screenshots.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -163,6 +195,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		9352319225B46D1F006AB8A0 /* Screenshots */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9352319C25B46D1F006AB8A0 /* Build configuration list for PBXNativeTarget "Screenshots" */;
+			buildPhases = (
+				9352318F25B46D1F006AB8A0 /* Sources */,
+				9352319025B46D1F006AB8A0 /* Frameworks */,
+				9352319125B46D1F006AB8A0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9352319925B46D1F006AB8A0 /* PBXTargetDependency */,
+			);
+			name = Screenshots;
+			productName = Screenshots;
+			productReference = 9352319325B46D1F006AB8A0 /* Screenshots.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		93F5ACF3254B75F800AF5E61 /* Attestation */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 93F5AD1E254B75FA00AF5E61 /* Build configuration list for PBXNativeTarget "Attestation" */;
@@ -222,9 +272,13 @@
 		93F5ACEC254B75F800AF5E61 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1200;
+				LastSwiftUpdateCheck = 1230;
 				LastUpgradeCheck = 1200;
 				TargetAttributes = {
+					9352319225B46D1F006AB8A0 = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = 93F5ACF3254B75F800AF5E61;
+					};
 					93F5ACF3254B75F800AF5E61 = {
 						CreatedOnToolsVersion = 12.0.1;
 					};
@@ -254,11 +308,19 @@
 				93F5ACF3254B75F800AF5E61 /* Attestation */,
 				93F5AD09254B75F900AF5E61 /* AttestationTests */,
 				93F5AD14254B75FA00AF5E61 /* AttestationUITests */,
+				9352319225B46D1F006AB8A0 /* Screenshots */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		9352319125B46D1F006AB8A0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		93F5ACF2254B75F800AF5E61 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -285,6 +347,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		9352318F25B46D1F006AB8A0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9352319625B46D1F006AB8A0 /* Screenshots.swift in Sources */,
+				935231A225B46D68006AB8A0 /* SnapshotHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		93F5ACF0254B75F800AF5E61 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -323,6 +394,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		9352319925B46D1F006AB8A0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 93F5ACF3254B75F800AF5E61 /* Attestation */;
+			targetProxy = 9352319825B46D1F006AB8A0 /* PBXContainerItemProxy */;
+		};
 		93F5AD0C254B75F900AF5E61 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 93F5ACF3254B75F800AF5E61 /* Attestation */;
@@ -336,6 +412,46 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		9352319A25B46D1F006AB8A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = E873B24XVN;
+				INFOPLIST_FILE = Screenshots/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = fr.adhumi.Screenshots;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Attestation;
+			};
+			name = Debug;
+		};
+		9352319B25B46D1F006AB8A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = E873B24XVN;
+				INFOPLIST_FILE = Screenshots/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = fr.adhumi.Screenshots;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Attestation;
+			};
+			name = Release;
+		};
 		93F5AD1C254B75FA00AF5E61 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -472,7 +588,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = fr.adhumi.attestations;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -496,7 +612,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = fr.adhumi.attestations;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -587,6 +703,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		9352319C25B46D1F006AB8A0 /* Build configuration list for PBXNativeTarget "Screenshots" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9352319A25B46D1F006AB8A0 /* Debug */,
+				9352319B25B46D1F006AB8A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		93F5ACEF254B75F800AF5E61 /* Build configuration list for PBXProject "Attestations" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

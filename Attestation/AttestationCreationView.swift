@@ -107,6 +107,8 @@ struct AttestationCreationView: View {
                 TextField("Nom", text: $lastName)
                     .textContentType(.familyName)
                 DatePicker("Date de naissance", selection: $birthDate, displayedComponents: .date)
+                    .environment(\.locale, Locale.current)
+                    .accessibility(identifier: "BirthDatePicker")
                 TextField("Lieu de naissance", text: $birthPlace)
                 TextField("Adresse", text: $address)
                     .textContentType(.fullStreetAddress)
@@ -123,7 +125,10 @@ struct AttestationCreationView: View {
         Section(header: Text("Date et heure de sortie")) {
             HStack {
                 Image(systemName: "calendar")
-                DatePicker("Date et heure de sortie", selection: $tripDate).labelsHidden()
+                DatePicker("Date et heure de sortie", selection: $tripDate)
+                    .labelsHidden()
+                    .environment(\.locale, Locale.current)
+                    .accessibility(identifier: "AttestationDatePicker")
             }
         }
     }

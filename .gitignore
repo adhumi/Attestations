@@ -79,7 +79,8 @@ Dependencies/
 
 fastlane/report.xml
 fastlane/Preview.html
-fastlane/screenshots/**/*.png
+Screenshots/**/*.png
+Screenshots/*.html
 fastlane/test_output
 
 # Code Injection

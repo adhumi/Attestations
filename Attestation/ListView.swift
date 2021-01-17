@@ -82,6 +82,7 @@ struct ListView: View {
                             }
                         }
                     }
+                    .accessibility(identifier: "Attestation\(attestation.creationDate!.timeIntervalSince1970)")
                 }
                 .onDelete(perform: deleteItems)
 
