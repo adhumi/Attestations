@@ -1,37 +1,21 @@
-## Welcome to GitHub Pages
+## Attestations
 
-You can use the [editor on GitHub](https://github.com/adhumi/Attestations/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+*Attestations* est une app toute simple mais qui vous simplifiera la vie au quotidien. Générez en un tap vos attestations de déplacement dérogatoire et gardez la trace de vos sorties.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Avec *Attestations*, toutes vos données restent dans votre téléphone et ne sont partagées avec aucun serveur. Elles ne sont utilisées que pour afficher vos attestations et en générer plus rapidement.
 
-### Markdown
+*Attestations* est open-source. Vous pouvez participer à son développement, signaler un problème ou proposer une nouvelle fonctionnalité sur [GitHub](https://github.com/adhumi/Attestations).
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### Données personelles 
 
-```markdown
-Syntax highlighted code block
+Nous stockons (avec votre permission) les données suivantes pour simplifier la génération des attestations :
+- Nom
+- Prénom
+- Date et lieu de naissance
+- Adresse
 
-# Header 1
-## Header 2
-### Header 3
+Ces données ne sont partagées avec personnes et ne sont envoyées à aucun serveur.
 
-- Bulleted
-- List
+### Support et contact
 
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/adhumi/Attestations/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+Vous pouvez nous contacter via [Twitter](https://twitter.com/adhumi) ou les issues [GitHub](https://github.com/adhumi/Attestations)
